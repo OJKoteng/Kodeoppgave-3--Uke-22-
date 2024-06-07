@@ -33,10 +33,35 @@
 
     <section>
         <button onclick="generer()">Legg til informasjon</button>
+        <br><br>
         <div id="output"></div>
     </section>
 
-    <script></script>
+    <script>
+
+        function generer() {
+
+
+            let navn = document.getElementById("navn").value.trim();
+
+            let meny = document.getElementById("meny").value;
+
+            let alder = document.getElementById("alder").value.trim();
+
+            if (navn === "") {
+                output = `Vennligst skriv inn navnet ditt`
+            } else if (alder === "") {
+                output = `Vennligst skriv inn alderen dinn`
+            } else {
+                // Her bruker jeg .CharAt(0) for å få utgangspunktet og bruker .toUpperCase for å gjøre om til stor forbokstav og så navn.slice(1) for å sørge for at kun den første bokstaven blir gjort om til stor bokstav. 
+                output = `Det var en gang en ${meny} som het ${navn.charAt(0).toUpperCase() + navn.slice(1)} og var født i år ${2024 - alder}. Denne personen er nå ${alder} år og har ${100 - alder} år igjen til 100-årsdagen sin!`;
+            }
+
+
+            document.getElementById("output").innerHTML = output;
+        }
+
+    </script>
 </body>
 
 </html>
