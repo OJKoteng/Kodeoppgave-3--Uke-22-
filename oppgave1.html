@@ -8,7 +8,35 @@
 </head>
 
 <body>
+    <section>
+        <h2>Velkommen til den dekadente historie-generatoren!</h2>
+    </section>
 
+    <section>
+        <input type="text" id="navn" name="navn" placeholder="Skriv inn navnet ditt her" required>
+        <br><br>
+    </section>
+
+    <section>
+        <select name="meny" id="meny">
+            <option value="mann">Mann</option>
+            <option value="kvinne">Kvinne</option>
+            <option value="hen">Annet/hen</option>
+        </select>
+        <br><br>
+    </section>
+
+    <section>
+        <input type="number" name="alder" id="alder" placeholder="Skriv inn alderen din her" required>
+        <br><br>
+    </section>
+
+    <section>
+        <button onclick="generer()">Legg til informasjon</button>
+        <div id="output"></div>
+    </section>
+
+    <script></script>
 </body>
 
 </html>
