@@ -5,11 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oppgave-1</title>
+    <style>
+        .win {
+            color: orange;
+            background-color: green;
+            font-size: 30px;
+        }
+
+        .loss {
+            color: white;
+            background-color: red;
+            font-size: 20px;
+        }
+    </style>
 </head>
 
 <body>
     <section>
         <h1>Gjett-et-tall-lek!</h1>
+        <input type="text" id="nummer" name="nummer" required placeholder="Skriv et tall mellom 0-100" min="0"
+            max="100">
+        <br><br>
+        <button onclick="generer()">Gjett tallet</button>
+        <br><br>
+        <div id="output"></div>
+
+        <script>
+
+            function generer() {
+
+                let rettTall = 69;
+
+                let tall = document.getElementById("nummer").value.trim();
+
+                if (tall === "" || isNaN(tall)) {
+                    output = `Vennligst skriv inn et tall mellom 0-100`;
+                } else if (tall > rettTall) {
+                    output = `Du gjettet på ${tall}. Dette er for høyt. Prøv igjen!`;
+                } else if (tall < rettTall) {
+                    output = `Du gjettet på ${tall}. Dette er for lavt. Prøv igjen!`;
+                } else {
+                    output = `WUHUU! Du gjettet riktig! Tallet er ${rettTall}.`;
+                }
+
+
+                document.getElementById("output").innerHTML = output;
+            }
+        </script>
     </section>
 </body>
 
