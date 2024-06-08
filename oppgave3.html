@@ -20,7 +20,7 @@
     </section>
 
     <section>
-        <input type="number" name="honnør" id="honnør" required placeholder="Skriv antall pensjonister">
+        <input type="number" name="honnør" id="honnør" required placeholder="Skriv antall honnør">
         <br><br>
     </section>
 
@@ -31,15 +31,36 @@
     </section>
 
     <section>
-        <label for="tur/retur">Tur/retur</label>
-        <input type="radio" name="tur/retur" id="tur/retur">
+        <label for="turRetur">Tur/retur</label>
+        <input type="radio" name="turRetur" id="turRetur">
         <br><br>
     </section>
 
     <section>
         <button onclick="beregn()">Bestill billetter</button>
         <br><br>
+        <div id="output"></div>
     </section>
+
+    <script>
+
+        let voksne = document.getElementById("voksne").value.trim();
+
+        let barn = document.getElementById("barn").value.trim();
+
+        let honnør = document.getElementById("honnør").value.trim();
+
+        let enkeltreise = document.getElementById("enkeltreise").value;
+
+        let turRetur = document.getElementById("turRetur").value;
+
+        function beregn() {
+
+
+        }
+
+
+    </script>
 </body>
 
 </html>
