@@ -9,13 +9,73 @@
 
 <body>
     <section>
-        <h1>Det Runde Bord Pizzeria</h1>
-
+        <h1>Velkommen Til Det Runde Bord Pizzeria!</h1>
+        <h4>Velg størrelse her</h4>
+        <label for="small">Small</label>
+        <input type="radio" name="bestilling" id="small">
+        <br><br>
+        <label for="medium">Medium</label>
+        <input type="radio" name="bestilling" id="medium">
+        <br><br>
+        <label for="large">Large</label>
+        <input type="radio" name="bestilling" id="large">
     </section>
 
     <section>
-
+        <h4>Velg type fyll her</h4>
+        <label for="kylling">Kylling</label>
+        <input type="radio" name="bestilling" id="kylling">
+        <br><br>
+        <label for="taco">Taco</label>
+        <input type="radio" name="bestilling" id="taco">
+        <br><br>
+        <label for="vegetar">Vegetar</label>
+        <input type="radio" name="bestilling" id="vegetar">
+        <br><br>
     </section>
+
+    <section>
+        <h4>Velg tykkelse på pizzaen her</h4>
+        <label for="tynn">Tynn</label>
+        <input type="radio" name="bestilling" id="tynn">
+        <br><br>
+        <label for="tykk">Tykk</label>
+        <input type="radio" name="bestilling" id="tykk">
+        <br><br>
+    </section>
+
+    <section>
+        <button onclick="generer()">Bestill pizza</button>
+        <div id="output"></div>
+    </section>
+
+    <script>
+
+        function generer() {
+
+            let small = document.getElementById("small");
+
+            let medium = document.getElementById("medium");
+
+            let large = document.getElementById("large");
+
+            let kylling = document.getElementById("kylling");
+
+            let taco = document.getElementById("taco");
+
+            let vegetar = document.getElementById("vegetar");
+
+            let tynn = document.getElementById("tynn");
+
+            let tykk = document.getElementById("tykk");
+
+            let output = document.getElementById("output");
+
+            document.getElementById("output").innerHTML = output;
+        }
+
+
+    </script>
 </body>
 
 </html>
