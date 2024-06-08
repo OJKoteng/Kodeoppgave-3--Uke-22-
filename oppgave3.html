@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oppgave-3</title>
+    <style>
+        .errorStyle {
+            background-color: red;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
@@ -52,6 +58,8 @@
 
             let honnør = document.getElementById("honnør").value.trim();
 
+            let output = document.getElementById("output");
+
             let enkeltreise = document.getElementById("enkeltreise");
 
             let turRetur = document.getElementById("turRetur");
@@ -61,10 +69,13 @@
             let turReturpris = totalpris * 2 * 0.75;
 
             if (voksne == 0 && barn == 0 && honnør == 0) {
+                output.classList.add("errorStyle")
                 output = `Vennligst velg minst en reisende`;
             } else if (enkeltreise.checked) {
+                output.classList.remove("errorStyle");
                 output = `Totalprisen for ${voksne} voksne, ${barn} barn og ${honnør} honnør, er ${totalpris} kroner. God tur!`;
             } else if (turRetur.checked) {
+                output.classList.remove("errorStyle");
                 output = `Totalprisen for ${voksne} voksne, ${barn} barn og ${honnør} honnør, er ${turReturpris} kroner. God tur!`;
             }
 
