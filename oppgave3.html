@@ -8,7 +8,38 @@
 </head>
 
 <body>
+    <section>
+        <h1>Fergetur for hele familien!</h1>
+        <input type="number" name="voksne" id="voksne" required placeholder="Skriv antall voksne">
+        <br><br>
+    </section>
 
+    <section>
+        <input type="number" name="barn" id="barn" required placeholder="Skriv antall barn">
+        <br><br>
+    </section>
+
+    <section>
+        <input type="number" name="honnør" id="honnør" required placeholder="Skriv antall pensjonister">
+        <br><br>
+    </section>
+
+    <section>
+        <label for="enkeltreise">Enkeltreise</label>
+        <input type="radio" name="enkeltreise" id="enkeltreise" checked>
+        <br><br>
+    </section>
+
+    <section>
+        <label for="tur/retur">Tur/retur</label>
+        <input type="radio" name="tur/retur" id="tur/retur">
+        <br><br>
+    </section>
+
+    <section>
+        <button onclick="beregn()">Bestill billetter</button>
+        <br><br>
+    </section>
 </body>
 
 </html>
