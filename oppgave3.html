@@ -10,29 +10,29 @@
 <body>
     <section>
         <h1>Fergetur for hele familien!</h1>
-        <input type="number" name="voksne" id="voksne" required placeholder="Skriv antall voksne">
+        <input type="number" name="voksne" id="voksne" required placeholder="Skriv antall voksne a 100">
         <br><br>
     </section>
 
     <section>
-        <input type="number" name="barn" id="barn" required placeholder="Skriv antall barn">
+        <input type="number" name="barn" id="barn" required placeholder="Skriv antall barn a 50">
         <br><br>
     </section>
 
     <section>
-        <input type="number" name="honnør" id="honnør" required placeholder="Skriv antall honnør">
+        <input type="number" name="honnør" id="honnør" required placeholder="Skriv antall honnør a 60">
         <br><br>
     </section>
 
     <section>
         <label for="enkeltreise">Enkeltreise</label>
-        <input type="radio" name="enkeltreise" id="enkeltreise" checked>
+        <input type="radio" name="billettType" id="enkeltreise" checked>
         <br><br>
     </section>
 
     <section>
-        <label for="turRetur">Tur/retur</label>
-        <input type="radio" name="turRetur" id="turRetur">
+        <label for="turRetur">Tur/retur (Gir en rabatt på 25 %)</label>
+        <input type="radio" name="billettType" id="turRetur">
         <br><br>
     </section>
 
@@ -44,19 +44,31 @@
 
     <script>
 
-        let voksne = document.getElementById("voksne").value.trim();
-
-        let barn = document.getElementById("barn").value.trim();
-
-        let honnør = document.getElementById("honnør").value.trim();
-
-        let enkeltreise = document.getElementById("enkeltreise").value;
-
-        let turRetur = document.getElementById("turRetur").value;
-
         function beregn() {
 
+            let voksne = document.getElementById("voksne").value.trim();
 
+            let barn = document.getElementById("barn").value.trim();
+
+            let honnør = document.getElementById("honnør").value.trim();
+
+            let enkeltreise = document.getElementById("enkeltreise");
+
+            let turRetur = document.getElementById("turRetur");
+
+            let totalpris = (voksne * 100) + (barn * 50) + (honnør * 60)
+
+            let turReturpris = totalpris * 2 * 0.75;
+
+            if (voksne == 0 && barn == 0 && honnør == 0) {
+                output = `Vennligst velg minst en reisende`;
+            } else if (enkeltreise.checked) {
+                output = `Totalprisen for ${voksne} voksne, ${barn} barn og ${honnør} honnør, er ${totalpris} kroner. God tur!`;
+            } else if (turRetur.checked) {
+                output = `Totalprisen for ${voksne} voksne, ${barn} barn og ${honnør} honnør, er ${turReturpris} kroner. God tur!`;
+            }
+
+            document.getElementById("output").innerHTML = output;
         }
 
 
