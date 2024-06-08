@@ -50,6 +50,27 @@
 
 
                 document.getElementById("output").innerHTML = output;
+
+                function generer() {
+
+                    let hemmeligTall = Math.floor(Math.random() * 101);
+
+                    let tall = document.getElementById("nummer").value.trim();
+
+                    if (tall === "" || isNaN(tall)) {
+                        output = `Vennligst skriv inn et tall mellom 0-100`;
+                    } else if (tall > hemmeligTall) {
+                        output = `Du gjettet på ${tall}. Dette er for høyt. Prøv igjen!`;
+                    } else if (tall < hemmeligTall) {
+                        output = `Du gjettet på ${tall}. Dette er for lavt. Prøv igjen!`;
+                    } else {
+                        output = `WUHUU! Du gjettet riktig! Tallet er ${hemmeligTall}.`;
+                    }
+
+
+                    document.getElementById("output").innerHTML = output;
+                }
+
             }
         </script>
     </section>
