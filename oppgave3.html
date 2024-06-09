@@ -16,17 +16,17 @@
 <body>
     <section>
         <h1>Fergetur for hele familien!</h1>
-        <input type="number" name="voksne" id="voksne" required placeholder="Skriv antall voksne a 100">
+        <input type="number" name="voksne" id="voksne" required placeholder="Skriv antall voksne (100kr)">
         <br><br>
     </section>
 
     <section>
-        <input type="number" name="barn" id="barn" required placeholder="Skriv antall barn a 50">
+        <input type="number" name="barn" id="barn" required placeholder="Skriv antall barn (50kr)">
         <br><br>
     </section>
 
     <section>
-        <input type="number" name="honnør" id="honnør" required placeholder="Skriv antall honnør a 60">
+        <input type="number" name="honnør" id="honnør" required placeholder="Skriv antall honnør (60kr)">
         <br><br>
     </section>
 
@@ -64,26 +64,34 @@
 
             let turRetur = document.getElementById("turRetur");
 
-            let totalpris = (voksne * 100) + (barn * 50) + (honnør * 60)
+            let totalpris = (voksne * 100) + (barn * 50) + (honnør * 60);
+            let melding = '';
 
-            let turReturpris = totalpris * 2 * 0.75;
+            output.classList.remove("errorStyle");
 
             if (voksne == 0 && barn == 0 && honnør == 0) {
-                output.classList.add("errorStyle")
-                output = `Vennligst velg minst en reisende`;
-            } else if (enkeltreise.checked) {
-                output.classList.remove("errorStyle");
-                output = `Totalprisen for ${voksne} voksne, ${barn} barn og ${honnør} honnør, er ${totalpris} kroner. God tur!`;
-            } else if (turRetur.checked) {
-                output.classList.remove("errorStyle");
-                output = `Totalprisen for ${voksne} voksne, ${barn} barn og ${honnør} honnør, er ${turReturpris} kroner. God tur!`;
+                output.classList.add("errorStyle");
+                melding = `Vennligst velg minst en reisende`;
+            } else {
+                if (turRetur.checked) {
+                    totalpris = (totalpris * 2) * 0.75;
+                }
+                melding = `Totalprisen for denne turen er ${totalpris} kr. God tur! Den inkluderer: `;
+                if (voksne) {
+                    melding += `${voksne} voksen/voksne, `;
+                }
+                if (barn) {
+                    melding += `${barn} barn, `;
+                }
+                if (honnør) {
+                    melding += `${honnør} honnør, `;
+                }
             }
 
-            document.getElementById("output").innerHTML = output;
+            document.getElementById("output").innerHTML = melding;
         }
-
-
     </script>
+
 </body>
 
 </html>
