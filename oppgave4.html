@@ -12,35 +12,35 @@
         <h1>Velkommen Til Det Runde Bord Pizzeria!</h1>
         <h4>Velg størrelse her</h4>
         <label for="small">Small</label>
-        <input type="radio" name="bestilling" id="small">
+        <input type="radio" name="bestilling1" id="small">
         <br><br>
         <label for="medium">Medium</label>
-        <input type="radio" name="bestilling" id="medium">
+        <input type="radio" name="bestilling1" id="medium">
         <br><br>
         <label for="large">Large</label>
-        <input type="radio" name="bestilling" id="large">
+        <input type="radio" name="bestilling1" id="large">
     </section>
 
     <section>
         <h4>Velg type fyll her</h4>
         <label for="kylling">Kylling</label>
-        <input type="radio" name="bestilling" id="kylling">
+        <input type="radio" name="bestilling2" id="kylling">
         <br><br>
         <label for="taco">Taco</label>
-        <input type="radio" name="bestilling" id="taco">
+        <input type="radio" name="bestilling2" id="taco">
         <br><br>
         <label for="vegetar">Vegetar</label>
-        <input type="radio" name="bestilling" id="vegetar">
+        <input type="radio" name="bestilling2" id="vegetar">
         <br><br>
     </section>
 
     <section>
         <h4>Velg tykkelse på pizzaen her</h4>
         <label for="tynn">Tynn</label>
-        <input type="radio" name="bestilling" id="tynn">
+        <input type="radio" name="bestilling3" id="tynn">
         <br><br>
         <label for="tykk">Tykk</label>
-        <input type="radio" name="bestilling" id="tykk">
+        <input type="radio" name="bestilling3" id="tykk">
         <br><br>
     </section>
 
@@ -71,10 +71,43 @@
 
             let output = document.getElementById("output");
 
+            let størrelse, fyll, tykkelse = "";
+
+            if (small.checked) {
+                størrelse = "small";
+            } else if (medium.checked) {
+                størrelse = "medium";
+            } else if (large.checked) {
+                størrelse = "large";
+            }
+
+            if (kylling.checked) {
+                fyll = "kylling";
+            } else if (taco.checked) {
+                fyll = "taco";
+            } else if (vegetar.checked) {
+                fyll = "vegetar";
+            }
+
+            if (kylling.checked) {
+                fyll = "kylling";
+            } else if (taco.checked) {
+                fyll = "taco";
+            } else if (vegetar.checked) {
+                fyll = "vegetar";
+            }
+
+            if (tynn.checked) {
+                tykkelse = "tynn";
+            } else if (tykk.checked) {
+                tykkelse = "tykk";
+            }
+
+            output = `Din bestilling av en ${størrelse} pizza med ${fyll} og ${tykkelse} bunn blir levert til deg innen 59 minutter!
+Takk for bestillingen.`
+
             document.getElementById("output").innerHTML = output;
         }
-
-
     </script>
 </body>
 
